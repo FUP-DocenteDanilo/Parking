@@ -39,6 +39,34 @@ public class Parking {
         matriculas.set(posicion, null);
         return posicion;
     }
+    
+    public int getPosicionesTotales(){
+        return matriculas.size();     
+    }
+    
+    public int getPosicionesLibres(){
+        return Collections.frequency(matriculas, null);
+    
+    }
+    
+    public int getPosicionesOcupadas(){
+        return getPosicionesTotales() - getPosicionesLibres();
+    }
+
+    @Override
+    public String toString() {
+        String cadena = "Parking "+nombre+"\n";
+        cadena +="-----------------\n";
+        for(int i=0;i<matriculas.size();i++){
+            cadena+= "Posición "+i+": ";
+            cadena+= (matriculas.get(i)==null)? "(Vacia)" : matriculas.get(i);
+            cadena+="\n";
+        }
+        cadena+="------------\n";
+        return cadena;
+    }
+    
+    
 
     private static class ParkingException extends Exception {
 
