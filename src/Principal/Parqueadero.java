@@ -1,20 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package Principal;
 
-/**
- *
- * @author idiomas
- */
-public class Parqueadero {
+import Parking.Parking;
+import java.util.Scanner;
 
-    /**
-     * @param args the command line arguments
-     */
+public class Parqueadero {
+    Parking parking=new Parking("Parqueadero.com",10);
+    static int opcion;
+    static Scanner sc=new Scanner(System.in);
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        do {            
+            menu();
+        } while (opcion!=4);
+      
+    }
+    
+    public static void menu(){
+        System.out.println("""
+                           1)Entrada de Vehiculo
+                           2)Salida de Vehiculo
+                           3)Mostrar Reporte
+                           4)Salir del Programa
+                            """);
+        opcion=Integer.parseInt(sc.nextLine());
     }
     
 }
